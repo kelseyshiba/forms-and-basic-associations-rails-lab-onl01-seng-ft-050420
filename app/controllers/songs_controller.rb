@@ -12,6 +12,9 @@ class SongsController < ApplicationController
   end
 
   def create
+   
+    #"song"=>{"title"=>"Margaritaville", "artist_name"=>"Jimmy Buffet", "genre_id"=>"1", "notes"=>["Hey Girl", "", ""]},
+    #"song"=>{"title"=>"Deal With It", "artist_name"=>"Eagles", "genre_id"=>"12", "notes"=>["Whatever", " You Want"]},
     @song = Song.new(song_params)
 
     if @song.save
@@ -47,7 +50,7 @@ class SongsController < ApplicationController
   private
 
   def song_params
-    params.require(:song).permit(:title)
+    params.require(:song).permit(:title, :artist_name, :genre_id, notes:[])
   end
 end
 
